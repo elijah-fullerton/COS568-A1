@@ -3,7 +3,7 @@
 # Resources below are ample for CIFAR/MNIST single-GPU runs.
 # Adjust partition/account/qos if your site requires it.
 #SBATCH --job-name=cos568-part1
-#SBATCH --partition=gpu
+#SBATCH --partition=all          # neuronic partitions: all (7d), lowprio (7d), interactive (2h)
 #SBATCH --gres=gpu:1
 #SBATCH --ntasks-per-node=1
 #SBATCH -N 1
