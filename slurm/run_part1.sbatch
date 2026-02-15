@@ -26,7 +26,7 @@ cd /u/ef0952/COS568/torch_demo/COS568-A1
 python scripts/run_hparam.py \
   --repo-root . \
   --results-root Results/data/singleshot \
-  --compression 1 \
+  --compression 0.5 \
   --post-epochs 10 \
   --pre-epochs-mag 200 \
   --pre-epochs-default 0 \
