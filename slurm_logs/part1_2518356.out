@@ -1,0 +1,44 @@
+Node(s): neu307
+WARNING: this experiment is not being saved.
+Loading cifar10 dataset.
+Creating lottery-resnet20 model.
+Pre-Train for 0 epochs.
+Pruning with snip for 1 epochs.
+Inference time on testing dataset, post-pruning: 0.157 sec 
+GPU memory allocated: 25.83 MB, peak: 446.68 MB
+Train results:
+                train_loss  test_loss  ...  top5_accuracy  inference_time
+Init.      0          NaN  58.012380  ...          50.00       11.041575
+Pre-Prune  0          NaN  58.012380  ...          50.00       11.041575
+Post-Prune 0          NaN  77.174947  ...          50.01        0.179870
+Final      10    0.997283   1.037636  ...          96.18        0.156598
+
+[4 rows x 5 columns]
+First 20 lines of prune results:
+                module   param  ...  score abs sum  prunable
+0                conv  weight  ...       0.015346      True
+1                  bn  weight  ...       0.000000     False
+2                  bn    bias  ...       0.000000     False
+3      blocks.0.conv1  weight  ...       0.018276      True
+4        blocks.0.bn1  weight  ...       0.000000     False
+5        blocks.0.bn1    bias  ...       0.000000     False
+6      blocks.0.conv2  weight  ...       0.019198      True
+7        blocks.0.bn2  weight  ...       0.000000     False
+8        blocks.0.bn2    bias  ...       0.000000     False
+9   blocks.0.shortcut  weight  ...       0.000000     False
+10     blocks.1.conv1  weight  ...       0.021502      True
+11       blocks.1.bn1  weight  ...       0.000000     False
+12       blocks.1.bn1    bias  ...       0.000000     False
+13     blocks.1.conv2  weight  ...       0.024037      True
+14       blocks.1.bn2  weight  ...       0.000000     False
+15       blocks.1.bn2    bias  ...       0.000000     False
+16  blocks.1.shortcut  weight  ...       0.000000     False
+17     blocks.2.conv1  weight  ...       0.035664      True
+18       blocks.2.bn1  weight  ...       0.000000     False
+19       blocks.2.bn1    bias  ...       0.000000     False
+
+[20 rows x 13 columns]
+Parameter Sparsity: 28907/272714 (0.1060)
+FLOP Sparsity: 6996105/41288330 (0.1694)
+Save PyTorch trace for 1 iteration on testing dataset.
+trace file saved at trace.json
