@@ -74,7 +74,7 @@ def convert_run(run_dir: Path):
 
 
 def main():
-    root = Path("Results/data/singleshot/singleshot")
+    root = Path("Results/data/singleshot/0.5Sparsity/singleshot")
     if not root.exists():
         raise SystemExit(f"Not found: {root}")
     for run in sorted(root.iterdir()):
