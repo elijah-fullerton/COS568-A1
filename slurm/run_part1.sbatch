@@ -25,7 +25,7 @@ cd /u/ef0952/COS568/torch_demo/COS568-A1
 # Run Task 1 grid (10% sparsity). Magnitude uses pre-epochs=200; others 0.
 python scripts/run_hparam.py \
   --repo-root . \
-  --results-root Results/data/singleshot/0.5Sparsity \
+  --results-root Results/data/singleshot/0.2Sparsity \
   --compression 0.5 \
   --post-epochs 10 \
   --pre-epochs-mag 200 \

@@ -50,9 +50,23 @@ def _safe_read_pickle(path: Path):
             return _PatchedUnpickler(f).load()
 
 
+def _load_post(run_dir: Path):
+    csv = run_dir / "post-train.csv"
+    if csv.exists():
+        return pd.read_csv(csv)
+    return _safe_read_pickle(run_dir / "post-train.pkl")
+
+
+def _load_comp(run_dir: Path):
+    csv = run_dir / "compression.csv"
+    if csv.exists():
+        return pd.read_csv(csv)
+    return _safe_read_pickle(run_dir / "compression.pkl")
+
+
 def load_run(run_dir: Path):
-    post = _safe_read_pickle(run_dir / "post-train.pkl")
-    comp = _safe_read_pickle(run_dir / "compression.pkl")
+    post = _load_post(run_dir)
+    comp = _load_comp(run_dir)
 
     final = post.tail(1).iloc[0]
     top1 = float(final["top1_accuracy"])
@@ -124,32 +138,40 @@ def parse_log_fallback(log_path: Path, expids):
 
 
 def main():
-    root = Path("Results/data/singleshot/singleshot")
+    roots = [
+        (Path("Results/data/singleshot/singleshot"), 1.0),
+        (Path("Results/data/singleshot/0.5Sparsity/singleshot"), 0.5),
+        (Path("Results/data/singleshot/0.2Sparsity/singleshot"), 0.2),
+    ]
     runs = []
-    for run_dir in sorted(root.iterdir()):
-        if not run_dir.is_dir():
+    for root, compression in roots:
+        if not root.exists():
             continue
-        m = re.match(r"part1_(?P<dataset>[^_]+)_(?P<model>[^_]+)_(?P<pruner>.+)", run_dir.name)
-        if not m:
-            continue
-        try:
-            info = load_run(run_dir)
-        except Exception:
-            info = None
-        if info is not None:
-            row = {"expid": run_dir.name, **m.groupdict(), **info}
-            runs.append(row)
+        for run_dir in sorted(root.iterdir()):
+            if not run_dir.is_dir():
+                continue
+            m = re.match(r"part1_(?P<dataset>[^_]+)_(?P<model>[^_]+)_(?P<pruner>.+)", run_dir.name)
+            if not m:
+                continue
+            try:
+                info = load_run(run_dir)
+            except Exception:
+                info = None
+            if info is not None:
+                row = {"expid": run_dir.name, "compression": compression, **m.groupdict(), **info}
+                runs.append(row)
 
-    if runs:
-        df = pd.DataFrame(runs).sort_values("expid")
-    else:
-        # Fallback: parse the slurm log if pickles are incompatible.
+    if not runs:
+        # Fallback: try logs if nothing was parsed
         expids = [e["expid"] for e in json.load(open("Results/data/singleshot/part1_summary.json"))]
         log = Path("slurm_logs").glob("part1_*.out")
         log_path = next(log, None)
         if log_path is None:
             raise RuntimeError("No results parsed and no slurm log found.")
-        df = parse_log_fallback(log_path, expids).sort_values("expid")
+        df = parse_log_fallback(log_path, expids)
+    else:
+        df = pd.DataFrame(runs)
+    df = df.sort_values(["compression", "expid"])
 
     # Derive dataset/model/pruner from expid if not already present.
     if "dataset" not in df.columns or "model" not in df.columns or "pruner" not in df.columns:
@@ -159,12 +181,12 @@ def main():
         df["pruner"] = parts[3]
 
     # Pivot tables for Task 1 reporting
-    acc_table = df.pivot(index=["dataset", "model"], columns="pruner", values="top1")
-    time_table = df.pivot(index=["dataset", "model"], columns="pruner", values="inference_time_s")
-    param_table = df.pivot(index=["dataset", "model"], columns="pruner", values="param_sparsity")
-    flop_table = df.pivot(index=["dataset", "model"], columns="pruner", values="flop_sparsity")
+    acc_table = df.pivot(index=["compression", "dataset", "model"], columns="pruner", values="top1")
+    time_table = df.pivot(index=["compression", "dataset", "model"], columns="pruner", values="inference_time_s")
+    param_table = df.pivot(index=["compression", "dataset", "model"], columns="pruner", values="param_sparsity")
+    flop_table = df.pivot(index=["compression", "dataset", "model"], columns="pruner", values="flop_sparsity")
 
-    out_base = Path("Results/data/singleshot/analysis_task1")
+    out_base = Path("Results/data/singleshot/analysis_task1_all")
     df.to_csv(out_base.with_suffix(".csv"), index=False)
     with open(out_base.with_suffix(".json"), "w") as f:
         json.dump(df.to_dict(orient="records"), f, indent=2)

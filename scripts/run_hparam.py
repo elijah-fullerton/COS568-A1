@@ -36,7 +36,7 @@ def main():
     p = argparse.ArgumentParser(description="Run COS568-A1 Task 1 grid.")
     p.add_argument("--python-bin", default="python")
     p.add_argument("--repo-root", default=".")
-    p.add_argument("--results-root", default="Results/data/singleshot")
+    p.add_argument("--results-root", default="Results/data/singleshot/0.2Sparsity")
     p.add_argument("--compression", type=float, default=1.0)  # 10% sparsity
     p.add_argument("--post-epochs", type=int, default=10)
     p.add_argument("--pre-epochs-mag", type=int, default=200)
