@@ -1,0 +1,25 @@
+/var/spool/slurmd/job2517968/slurm_script: line 21: /u/ef0952/COS568/torch_demo/venv/bin/activate: No such file or directory
+/var/spool/slurmd/job2517968/slurm_script: line 23: cd: /u/ef0952/COS568/torch_demo/COS568-A1: No such file or directory
+Traceback (most recent call last):
+  File "/auto/u/ef0952/COS568-A1/main.py", line 124, in <module>
+    os.makedirs(result_dir)
+  File "<frozen os>", line 225, in makedirs
+FileExistsError: [Errno 17] File exists: 'Results/data/singleshot/singleshot/part1_cifar10_resnet20_rand'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/auto/u/ef0952/COS568-A1/main.py", line 128, in <module>
+    val = input("Experiment '{}' with expid '{}' exists.  Overwrite (yes/no)? ".format(args.experiment, args.expid))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+EOFError: EOF when reading a line
+Traceback (most recent call last):
+  File "/auto/u/ef0952/COS568-A1/scripts/run_hparam.py", line 86, in <module>
+    main()
+  File "/auto/u/ef0952/COS568-A1/scripts/run_hparam.py", line 77, in main
+    run_cmd(cmd, dry_run=args.dry_run)
+  File "/auto/u/ef0952/COS568-A1/scripts/run_hparam.py", line 32, in run_cmd
+    subprocess.run(cmd, check=True)
+  File "/usr/local/anaconda3/2024.02/lib/python3.11/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['python', 'main.py', '--experiment', 'singleshot', '--dataset', 'cifar10', '--model-class', 'lottery', '--model', 'resnet20', '--pruner', 'rand', '--compression', '0.5', '--expid', 'part1_cifar10_resnet20_rand', '--result-dir', 'Results/data/singleshot', '--post-epochs', '10', '--pre-epochs', '0', '--train-batch-size', '256', '--test-batch-size', '256', '--prune-batch-size', '256', '--workers', '4', '--seed', '1']' returned non-zero exit status 1.

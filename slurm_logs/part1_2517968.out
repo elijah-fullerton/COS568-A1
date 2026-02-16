@@ -1,0 +1,2 @@
+Node(s): neu303
+Experiment 'singleshot' with expid 'part1_cifar10_resnet20_rand' exists.  Overwrite (yes/no)? python main.py --experiment singleshot --dataset cifar10 --model-class lottery --model resnet20 --pruner rand --compression 0.5 --expid part1_cifar10_resnet20_rand --result-dir Results/data/singleshot --post-epochs 10 --pre-epochs 0 --train-batch-size 256 --test-batch-size 256 --prune-batch-size 256 --workers 4 --seed 1
