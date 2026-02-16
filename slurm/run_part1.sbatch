@@ -22,16 +22,26 @@ source /u/ef0952/COS568/torch_demo/venv/bin/activate
 
 cd /u/ef0952/COS568/torch_demo/COS568-A1
 
+
 # Run Task 1 grid (10% sparsity). Magnitude uses pre-epochs=200; others 0.
-python scripts/run_hparam.py \
-  --repo-root . \
-  --results-root Results/data/singleshot/0.2Sparsity \
-  --compression 0.5 \
-  --post-epochs 10 \
-  --pre-epochs-mag 200 \
-  --pre-epochs-default 0 \
-  --train-batch-size 256 \
-  --test-batch-size 256 \
-  --prune-batch-size 256 \
-  --workers 4 \
-  --seed 1
+#python scripts/run_hparam.py \
+  #--repo-root . \
+  #--results-root Results/data/singleshot/0.2Sparsity \
+  #--compression 1.0 \
+  #--post-epochs 10 \
+  #--pre-epochs-mag 200 \
+  #--pre-epochs-default 0 \
+  #--train-batch-size 256 \
+  #--test-batch-size 256 \
+  #--prune-batch-size 256 \
+  #--workers 4 \
+  #--seed 1
+
+python main.py \
+  --model-class lottery \
+  --model resnet20 \
+  --dataset cifar10 \
+  --experiment singleshot \
+  --pruner snip \
+  --compression 1.0 \
+  --save-trace
