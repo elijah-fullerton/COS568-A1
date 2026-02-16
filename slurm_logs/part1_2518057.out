@@ -1,0 +1,382 @@
+Node(s): neu305
+Loading cifar10 dataset.
+Creating lottery-resnet20 model.
+Pre-Train for 0 epochs.
+Pruning with rand for 1 epochs.
+Inference time on testing dataset, post-pruning: 0.141 sec 
+GPU memory allocated: 24.74 MB, peak: 446.51 MB
+Train results:
+                train_loss  test_loss  ...  top5_accuracy  inference_time
+Init.      0          NaN  58.012380  ...          50.00       17.809393
+Pre-Prune  0          NaN  58.012380  ...          50.00       17.809393
+Post-Prune 0          NaN   2.327997  ...          49.96        0.169376
+Final      10    0.705798   0.823435  ...          98.27        0.141195
+
+[4 rows x 5 columns]
+First 20 lines of prune results:
+                module   param  ...  score abs sum  prunable
+0                conv  weight  ...     361.780884      True
+1                  bn  weight  ...       0.000000     False
+2                  bn    bias  ...       0.000000     False
+3      blocks.0.conv1  weight  ...    1802.767090      True
+4        blocks.0.bn1  weight  ...       0.000000     False
+5        blocks.0.bn1    bias  ...       0.000000     False
+6      blocks.0.conv2  weight  ...    1815.869629      True
+7        blocks.0.bn2  weight  ...       0.000000     False
+8        blocks.0.bn2    bias  ...       0.000000     False
+9   blocks.0.shortcut  weight  ...       0.000000     False
+10     blocks.1.conv1  weight  ...    1826.695679      True
+11       blocks.1.bn1  weight  ...       0.000000     False
+12       blocks.1.bn1    bias  ...       0.000000     False
+13     blocks.1.conv2  weight  ...    1812.260254      True
+14       blocks.1.bn2  weight  ...       0.000000     False
+15       blocks.1.bn2    bias  ...       0.000000     False
+16  blocks.1.shortcut  weight  ...       0.000000     False
+17     blocks.2.conv1  weight  ...    1851.294189      True
+18       blocks.2.bn1  weight  ...       0.000000     False
+19       blocks.2.bn1    bias  ...       0.000000     False
+
+[20 rows x 13 columns]
+Parameter Sparsity: 87482/272714 (0.3208)
+FLOP Sparsity: 13250138/41288330 (0.3209)
+Saving results.
+Loading cifar10 dataset.
+Creating lottery-resnet20 model.
+Pre-Train for 200 epochs.
+Pruning with mag for 1 epochs.
+Inference time on testing dataset, post-pruning: 0.118 sec 
+GPU memory allocated: 24.74 MB, peak: 446.51 MB
+Train results:
+                 train_loss  test_loss  ...  top5_accuracy  inference_time
+Init.      0           NaN  58.012380  ...          50.00        0.405601
+Pre-Prune  200    0.043830   0.653792  ...          99.54        0.145146
+Post-Prune 0           NaN   5.321227  ...          61.05        0.120888
+Final      10     0.095927   0.505043  ...          99.63        0.117537
+
+[4 rows x 5 columns]
+First 20 lines of prune results:
+                module   param  ...  score abs sum  prunable
+0                conv  weight  ...     114.350380      True
+1                  bn  weight  ...       0.000000     False
+2                  bn    bias  ...       0.000000     False
+3      blocks.0.conv1  weight  ...     401.045166      True
+4        blocks.0.bn1  weight  ...       0.000000     False
+5        blocks.0.bn1    bias  ...       0.000000     False
+6      blocks.0.conv2  weight  ...     411.177917      True
+7        blocks.0.bn2  weight  ...       0.000000     False
+8        blocks.0.bn2    bias  ...       0.000000     False
+9   blocks.0.shortcut  weight  ...       0.000000     False
+10     blocks.1.conv1  weight  ...     410.537231      True
+11       blocks.1.bn1  weight  ...       0.000000     False
+12       blocks.1.bn1    bias  ...       0.000000     False
+13     blocks.1.conv2  weight  ...     408.015198      True
+14       blocks.1.bn2  weight  ...       0.000000     False
+15       blocks.1.bn2    bias  ...       0.000000     False
+16  blocks.1.shortcut  weight  ...       0.000000     False
+17     blocks.2.conv1  weight  ...     405.275452      True
+18       blocks.2.bn1  weight  ...       0.000000     False
+19       blocks.2.bn1    bias  ...       0.000000     False
+
+[20 rows x 13 columns]
+Parameter Sparsity: 87483/272714 (0.3208)
+FLOP Sparsity: 13965837/41288330 (0.3383)
+Saving results.
+Loading cifar10 dataset.
+Creating lottery-resnet20 model.
+Pre-Train for 0 epochs.
+Pruning with snip for 1 epochs.
+Inference time on testing dataset, post-pruning: 0.115 sec 
+GPU memory allocated: 25.83 MB, peak: 446.68 MB
+Train results:
+                train_loss  test_loss  ...  top5_accuracy  inference_time
+Init.      0          NaN  58.012380  ...          50.00        0.383729
+Pre-Prune  0          NaN  58.012380  ...          50.00        0.383729
+Post-Prune 0          NaN  56.125925  ...          49.94        0.106469
+Final      10    0.766736   0.801456  ...          97.94        0.114929
+
+[4 rows x 5 columns]
+First 20 lines of prune results:
+                module   param  ...  score abs sum  prunable
+0                conv  weight  ...       0.015346      True
+1                  bn  weight  ...       0.000000     False
+2                  bn    bias  ...       0.000000     False
+3      blocks.0.conv1  weight  ...       0.018276      True
+4        blocks.0.bn1  weight  ...       0.000000     False
+5        blocks.0.bn1    bias  ...       0.000000     False
+6      blocks.0.conv2  weight  ...       0.019198      True
+7        blocks.0.bn2  weight  ...       0.000000     False
+8        blocks.0.bn2    bias  ...       0.000000     False
+9   blocks.0.shortcut  weight  ...       0.000000     False
+10     blocks.1.conv1  weight  ...       0.021502      True
+11       blocks.1.bn1  weight  ...       0.000000     False
+12       blocks.1.bn1    bias  ...       0.000000     False
+13     blocks.1.conv2  weight  ...       0.024037      True
+14       blocks.1.bn2  weight  ...       0.000000     False
+15       blocks.1.bn2    bias  ...       0.000000     False
+16  blocks.1.shortcut  weight  ...       0.000000     False
+17     blocks.2.conv1  weight  ...       0.035664      True
+18       blocks.2.bn1  weight  ...       0.000000     False
+19       blocks.2.bn1    bias  ...       0.000000     False
+
+[20 rows x 13 columns]
+Parameter Sparsity: 87483/272714 (0.3208)
+FLOP Sparsity: 16361927/41288330 (0.3963)
+Saving results.
+Loading cifar10 dataset.
+Creating lottery-resnet20 model.
+Pre-Train for 0 epochs.
+Pruning with grasp for 1 epochs.
+Inference time on testing dataset, post-pruning: 0.185 sec 
+GPU memory allocated: 24.74 MB, peak: 445.59 MB
+Train results:
+                train_loss     test_loss  ...  top5_accuracy  inference_time
+Init.      0          NaN  5.801238e+01  ...           50.0        0.390388
+Pre-Prune  0          NaN  5.801238e+01  ...           50.0        0.390388
+Post-Prune 0          NaN  1.329358e+13  ...           50.0        0.109390
+Final      10    1.055274  1.034481e+00  ...           96.3        0.184773
+
+[4 rows x 5 columns]
+First 20 lines of prune results:
+                module   param  ...  score abs sum  prunable
+0                conv  weight  ...       0.249835      True
+1                  bn  weight  ...       0.000000     False
+2                  bn    bias  ...       0.000000     False
+3      blocks.0.conv1  weight  ...       0.287407      True
+4        blocks.0.bn1  weight  ...       0.000000     False
+5        blocks.0.bn1    bias  ...       0.000000     False
+6      blocks.0.conv2  weight  ...       0.304514      True
+7        blocks.0.bn2  weight  ...       0.000000     False
+8        blocks.0.bn2    bias  ...       0.000000     False
+9   blocks.0.shortcut  weight  ...       0.000000     False
+10     blocks.1.conv1  weight  ...       0.313802      True
+11       blocks.1.bn1  weight  ...       0.000000     False
+12       blocks.1.bn1    bias  ...       0.000000     False
+13     blocks.1.conv2  weight  ...       0.310426      True
+14       blocks.1.bn2  weight  ...       0.000000     False
+15       blocks.1.bn2    bias  ...       0.000000     False
+16  blocks.1.shortcut  weight  ...       0.000000     False
+17     blocks.2.conv1  weight  ...       0.447949      True
+18       blocks.2.bn1  weight  ...       0.000000     False
+19       blocks.2.bn1    bias  ...       0.000000     False
+
+[20 rows x 13 columns]
+Parameter Sparsity: 87483/272714 (0.3208)
+FLOP Sparsity: 14676174/41288330 (0.3555)
+Saving results.
+Loading cifar10 dataset.
+Creating lottery-resnet20 model.
+Pre-Train for 0 epochs.
+Pruning with synflow for 1 epochs.
+Inference time on testing dataset, post-pruning: 0.183 sec 
+GPU memory allocated: 24.74 MB, peak: 446.51 MB
+Train results:
+                train_loss  test_loss  ...  top5_accuracy  inference_time
+Init.      0          NaN  58.012380  ...          50.00        1.038815
+Pre-Prune  0          NaN  58.012380  ...          50.00        1.038815
+Post-Prune 0          NaN  10.176601  ...          49.91        0.171657
+Final      10    0.702199   0.729321  ...          98.56        0.183139
+
+[4 rows x 5 columns]
+First 20 lines of prune results:
+                module   param  ...  score abs sum  prunable
+0                conv  weight  ...   1.352762e+25      True
+1                  bn  weight  ...   0.000000e+00     False
+2                  bn    bias  ...   0.000000e+00     False
+3      blocks.0.conv1  weight  ...   1.345376e+25      True
+4        blocks.0.bn1  weight  ...   0.000000e+00     False
+5        blocks.0.bn1    bias  ...   0.000000e+00     False
+6      blocks.0.conv2  weight  ...   1.345375e+25      True
+7        blocks.0.bn2  weight  ...   0.000000e+00     False
+8        blocks.0.bn2    bias  ...   0.000000e+00     False
+9   blocks.0.shortcut  weight  ...   0.000000e+00     False
+10     blocks.1.conv1  weight  ...   1.345198e+25      True
+11       blocks.1.bn1  weight  ...   0.000000e+00     False
+12       blocks.1.bn1    bias  ...   0.000000e+00     False
+13     blocks.1.conv2  weight  ...   1.345198e+25      True
+14       blocks.1.bn2  weight  ...   0.000000e+00     False
+15       blocks.1.bn2    bias  ...   0.000000e+00     False
+16  blocks.1.shortcut  weight  ...   0.000000e+00     False
+17     blocks.2.conv1  weight  ...   1.345118e+25      True
+18       blocks.2.bn1  weight  ...   0.000000e+00     False
+19       blocks.2.bn1    bias  ...   0.000000e+00     False
+
+[20 rows x 13 columns]
+Parameter Sparsity: 87483/272714 (0.3208)
+FLOP Sparsity: 25689273/41288330 (0.6222)
+Saving results.
+Loading mnist dataset.
+Creating default-fc model.
+Pre-Train for 0 epochs.
+Pruning with rand for 1 epochs.
+Inference time on testing dataset, post-pruning: 0.019 sec 
+GPU memory allocated: 20.98 MB, peak: 22.28 MB
+Train results:
+                train_loss  test_loss  ...  top5_accuracy  inference_time
+Init.      0          NaN   2.306855  ...          47.39        0.253318
+Pre-Prune  0          NaN   2.306855  ...          47.39        0.253318
+Post-Prune 0          NaN   2.305127  ...          49.80        0.020751
+Final      10    0.101561   0.120416  ...          99.89        0.019310
+
+[4 rows x 5 columns]
+First 20 lines of prune results:
+    module   param  sparsity  ...  score abs variance score abs sum  prunable
+0       1  weight  0.317398  ...            0.364183  62539.335938      True
+1       1    bias  1.000000  ...            0.000000      0.000000     False
+2       3  weight  0.309500  ...            0.367775   7920.516602      True
+3       3    bias  1.000000  ...            0.000000      0.000000     False
+4       5  weight  0.318300  ...            0.352073   7896.190430      True
+5       5    bias  1.000000  ...            0.000000      0.000000     False
+6       7  weight  0.315500  ...            0.361521   7916.939453      True
+7       7    bias  1.000000  ...            0.000000      0.000000     False
+8       9  weight  0.311000  ...            0.354341   7925.648438      True
+9       9    bias  1.000000  ...            0.000000      0.000000     False
+10     11  weight  0.331000  ...            0.353799    826.184204      True
+11     11    bias  1.000000  ...            0.000000      0.000000     False
+
+[12 rows x 13 columns]
+Parameter Sparsity: 38267/119910 (0.3191)
+FLOP Sparsity: 38267/119910 (0.3191)
+Saving results.
+Loading mnist dataset.
+Creating default-fc model.
+Pre-Train for 200 epochs.
+Pruning with mag for 1 epochs.
+Inference time on testing dataset, post-pruning: 0.022 sec 
+GPU memory allocated: 20.98 MB, peak: 22.28 MB
+Train results:
+                   train_loss  test_loss  ...  top5_accuracy  inference_time
+Init.      0             NaN   2.306855  ...          47.39        0.115676
+Pre-Prune  200  9.338060e-11   0.258013  ...          99.88        0.027633
+Post-Prune 0             NaN   0.247016  ...          99.55        0.019825
+Final      10   1.670374e-05   0.166168  ...          99.81        0.022074
+
+[4 rows x 5 columns]
+First 20 lines of prune results:
+    module   param  sparsity  ...  score abs variance score abs sum  prunable
+0       1  weight  0.275408  ...            0.009990   7362.223633      True
+1       1    bias  1.000000  ...            0.000000      0.000000     False
+2       3  weight  0.456600  ...            0.012421   1370.124756      True
+3       3    bias  1.000000  ...            0.000000      0.000000     False
+4       5  weight  0.428300  ...            0.010888   1292.411011      True
+5       5    bias  1.000000  ...            0.000000      0.000000     False
+6       7  weight  0.375600  ...            0.008440   1142.691162      True
+7       7    bias  1.000000  ...            0.000000      0.000000     False
+8       9  weight  0.315100  ...            0.006392    995.294312      True
+9       9    bias  1.000000  ...            0.000000      0.000000     False
+10     11  weight  0.410000  ...            0.022240    150.575470      True
+11     11    bias  1.000000  ...            0.000000      0.000000     False
+
+[12 rows x 13 columns]
+Parameter Sparsity: 38267/119910 (0.3191)
+FLOP Sparsity: 38267/119910 (0.3191)
+Saving results.
+Loading mnist dataset.
+Creating default-fc model.
+Pre-Train for 0 epochs.
+Pruning with snip for 1 epochs.
+Inference time on testing dataset, post-pruning: 0.025 sec 
+GPU memory allocated: 21.46 MB, peak: 22.76 MB
+Train results:
+                train_loss  test_loss  ...  top5_accuracy  inference_time
+Init.      0          NaN   2.306855  ...          47.39        0.132299
+Pre-Prune  0          NaN   2.306855  ...          47.39        0.132299
+Post-Prune 0          NaN   2.307302  ...          49.08        0.025755
+Final      10    0.052597   0.102943  ...          99.92        0.025117
+
+[4 rows x 5 columns]
+First 20 lines of prune results:
+    module   param  sparsity  ...  score abs variance score abs sum  prunable
+0       1  weight  0.291696  ...        5.989314e-11      0.404448      True
+1       1    bias  1.000000  ...        0.000000e+00      0.000000     False
+2       3  weight  0.485500  ...        4.284687e-10      0.125934      True
+3       3    bias  1.000000  ...        0.000000e+00      0.000000     False
+4       5  weight  0.388500  ...        4.830764e-10      0.111812      True
+5       5    bias  1.000000  ...        0.000000e+00      0.000000     False
+6       7  weight  0.302600  ...        6.846699e-10      0.103630      True
+7       7    bias  1.000000  ...        0.000000e+00      0.000000     False
+8       9  weight  0.263200  ...        2.011727e-09      0.158670      True
+9       9    bias  1.000000  ...        0.000000e+00      0.000000     False
+10     11  weight  0.491000  ...        5.414623e-08      0.095505      True
+11     11    bias  1.000000  ...        0.000000e+00      0.000000     False
+
+[12 rows x 13 columns]
+Parameter Sparsity: 38268/119910 (0.3191)
+FLOP Sparsity: 38268/119910 (0.3191)
+Saving results.
+Loading mnist dataset.
+Creating default-fc model.
+Pre-Train for 0 epochs.
+Pruning with grasp for 1 epochs.
+Inference time on testing dataset, post-pruning: 0.028 sec 
+GPU memory allocated: 20.98 MB, peak: 22.28 MB
+Train results:
+                train_loss  test_loss  ...  top5_accuracy  inference_time
+Init.      0          NaN   2.306855  ...          47.39        0.119946
+Pre-Prune  0          NaN   2.306855  ...          47.39        0.119946
+Post-Prune 0          NaN   2.680617  ...          49.35        0.025612
+Final      10    0.074062   0.121791  ...          99.83        0.027565
+
+[4 rows x 5 columns]
+First 20 lines of prune results:
+    module   param  sparsity  ...  score abs variance score abs sum  prunable
+0       1  weight  0.311097  ...        4.010846e-10      0.980858      True
+1       1    bias  1.000000  ...        0.000000e+00      0.000000     False
+2       3  weight  0.424300  ...        7.668779e-09      0.450645      True
+3       3    bias  1.000000  ...        0.000000e+00      0.000000     False
+4       5  weight  0.376700  ...        1.109022e-08      0.519234      True
+5       5    bias  1.000000  ...        0.000000e+00      0.000000     False
+6       7  weight  0.291200  ...        2.182158e-08      0.607798      True
+7       7    bias  1.000000  ...        0.000000e+00      0.000000     False
+8       9  weight  0.208200  ...        3.037865e-08      0.663623      True
+9       9    bias  1.000000  ...        0.000000e+00      0.000000     False
+10     11  weight  0.364000  ...        3.629367e-07      0.315077      True
+11     11    bias  1.000000  ...        0.000000e+00      0.000000     False
+
+[12 rows x 13 columns]
+Parameter Sparsity: 38267/119910 (0.3191)
+FLOP Sparsity: 38267/119910 (0.3191)
+Saving results.
+Loading mnist dataset.
+Creating default-fc model.
+Pre-Train for 0 epochs.
+Pruning with synflow for 1 epochs.
+Inference time on testing dataset, post-pruning: 0.023 sec 
+GPU memory allocated: 20.98 MB, peak: 22.28 MB
+Train results:
+                train_loss  test_loss  ...  top5_accuracy  inference_time
+Init.      0          NaN   2.306855  ...          47.39        0.122156
+Pre-Prune  0          NaN   2.306855  ...          47.39        0.122156
+Post-Prune 0          NaN   2.306739  ...          49.80        0.023319
+Final      10    0.152015   0.171172  ...          99.73        0.023346
+
+[4 rows x 5 columns]
+First 20 lines of prune results:
+    module   param  sparsity  ...  score abs variance score abs sum  prunable
+0       1  weight  0.024209  ...            9.872969  421432.37500      True
+1       1    bias  1.000000  ...            0.000000       0.00000     False
+2       3  weight  0.874200  ...          606.436279  421973.75000      True
+3       3    bias  1.000000  ...            0.000000       0.00000     False
+4       5  weight  0.876000  ...          605.871582  422284.00000      True
+5       5    bias  1.000000  ...            0.000000       0.00000     False
+6       7  weight  0.868400  ...          616.338745  422344.31250      True
+7       7    bias  1.000000  ...            0.000000       0.00000     False
+8       9  weight  0.868300  ...          690.546692  422357.25000      True
+9       9    bias  1.000000  ...            0.000000       0.00000     False
+10     11  weight  0.991000  ...        62346.089844  422359.28125      True
+11     11    bias  1.000000  ...            0.000000       0.00000     False
+
+[12 rows x 13 columns]
+Parameter Sparsity: 38267/119910 (0.3191)
+FLOP Sparsity: 38267/119910 (0.3191)
+Saving results.
+python main.py --experiment singleshot --dataset cifar10 --model-class lottery --model resnet20 --pruner rand --compression 0.5 --expid part1_cifar10_resnet20_rand --result-dir Results/data/singleshot/0.5Sparsity --post-epochs 10 --pre-epochs 0 --train-batch-size 256 --test-batch-size 256 --prune-batch-size 256 --workers 4 --seed 1
+python main.py --experiment singleshot --dataset cifar10 --model-class lottery --model resnet20 --pruner mag --compression 0.5 --expid part1_cifar10_resnet20_mag --result-dir Results/data/singleshot/0.5Sparsity --post-epochs 10 --pre-epochs 200 --train-batch-size 256 --test-batch-size 256 --prune-batch-size 256 --workers 4 --seed 1
+python main.py --experiment singleshot --dataset cifar10 --model-class lottery --model resnet20 --pruner snip --compression 0.5 --expid part1_cifar10_resnet20_snip --result-dir Results/data/singleshot/0.5Sparsity --post-epochs 10 --pre-epochs 0 --train-batch-size 256 --test-batch-size 256 --prune-batch-size 256 --workers 4 --seed 1
+python main.py --experiment singleshot --dataset cifar10 --model-class lottery --model resnet20 --pruner grasp --compression 0.5 --expid part1_cifar10_resnet20_grasp --result-dir Results/data/singleshot/0.5Sparsity --post-epochs 10 --pre-epochs 0 --train-batch-size 256 --test-batch-size 256 --prune-batch-size 256 --workers 4 --seed 1
+python main.py --experiment singleshot --dataset cifar10 --model-class lottery --model resnet20 --pruner synflow --compression 0.5 --expid part1_cifar10_resnet20_synflow --result-dir Results/data/singleshot/0.5Sparsity --post-epochs 10 --pre-epochs 0 --train-batch-size 256 --test-batch-size 256 --prune-batch-size 256 --workers 4 --seed 1
+python main.py --experiment singleshot --dataset mnist --model-class default --model fc --pruner rand --compression 0.5 --expid part1_mnist_fc_rand --result-dir Results/data/singleshot/0.5Sparsity --post-epochs 10 --pre-epochs 0 --train-batch-size 256 --test-batch-size 256 --prune-batch-size 256 --workers 4 --seed 1
+python main.py --experiment singleshot --dataset mnist --model-class default --model fc --pruner mag --compression 0.5 --expid part1_mnist_fc_mag --result-dir Results/data/singleshot/0.5Sparsity --post-epochs 10 --pre-epochs 200 --train-batch-size 256 --test-batch-size 256 --prune-batch-size 256 --workers 4 --seed 1
+python main.py --experiment singleshot --dataset mnist --model-class default --model fc --pruner snip --compression 0.5 --expid part1_mnist_fc_snip --result-dir Results/data/singleshot/0.5Sparsity --post-epochs 10 --pre-epochs 0 --train-batch-size 256 --test-batch-size 256 --prune-batch-size 256 --workers 4 --seed 1
+python main.py --experiment singleshot --dataset mnist --model-class default --model fc --pruner grasp --compression 0.5 --expid part1_mnist_fc_grasp --result-dir Results/data/singleshot/0.5Sparsity --post-epochs 10 --pre-epochs 0 --train-batch-size 256 --test-batch-size 256 --prune-batch-size 256 --workers 4 --seed 1
+python main.py --experiment singleshot --dataset mnist --model-class default --model fc --pruner synflow --compression 0.5 --expid part1_mnist_fc_synflow --result-dir Results/data/singleshot/0.5Sparsity --post-epochs 10 --pre-epochs 0 --train-batch-size 256 --test-batch-size 256 --prune-batch-size 256 --workers 4 --seed 1
+Saved summary to Results/data/singleshot/0.5Sparsity/part1_summary.json
